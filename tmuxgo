@@ -1,0 +1,13 @@
+#!/bin/sh
+tmux -2 new-session -d
+tmux send-keys 'cd ~/Projects/tutorials/rails_in_action/ticketee' 'C-m'
+tmux send-keys 'll' 'C-m'
+tmux split-window -h
+tmux send-keys 'cd ~/Projects/tutorials/rails_in_action/ticketee && rails s' 'C-m'
+tmux split-window -h #'exec irssi'
+tmux select-layout even-horizontal
+tmux split-window -v
+tmux send-keys 'rvm use 1.9.3@rails32' 'C-m'
+tmux new-window
+tmux send-keys 'conky &' 'C-m'
+tmux attach
